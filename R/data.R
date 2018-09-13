@@ -1,0 +1,31 @@
+#' Daily bitcoin prices and other 10 regressors which can be used for multivariate forecasting
+#'
+#' A dataset containing daily bitcoin prices and other 10 regressors which can be used for multivariate forecasting
+#'
+#' @docType data
+#'
+#' @usage data(data_bitcoin_multi)
+#'
+#' @format A dataframe of 1447 rows and 12 columns
+#' \describe{
+#'  \item{\code{timestamp}}{daily time-stamp}
+#'  \item{\code{Close}}{Average BTCUSD market price across major bitcoin exchanges. Source: blockchain.info}
+#'  \item{\code{Volume_traded_USD}}{The total USD value of trading volume on major bitcoin exchanges. Source: blockchain.info}
+#'  \item{\code{Google}}{Normalized daily Google search data for the word "bitcoin".}
+#'  \item{\code{Transaction_value}}{The total estimated value of transactions on the Bitcoin blockchain. Source: blockchain.info}
+#'  \item{\code{Hash_Rate}}{The estimated number of tera hashes per second (trillions of hashes per second) the Bitcoin network is performing. Source: blockchain.info}
+#'  \item{\code{Gold}}{Gold price in USD. Source: investing.com}
+#'  \item{\code{Shanghai_index}}{The Shanghai market index. Source: yahoo.finance}
+#'  \item{\code{total_bitcoins}}{The total number of bitcoins that have already been mined; in other words, the current supply of bitcoins on the network. Source: blockchain.info}
+#'  \item{\code{New_posts}}{The number of new posts on online BitCoin forums extracted from bitcointalk.org.}
+#'  \item{\code{New_members}}{The number of new members on online BitCoin forums extracted from bitcointalk.org}
+#'  \item{\code{Dow_Jones}}{Dow Jones stock market index. Source: yahoo.finance}
+#' }
+#'
+#' @keywords datasets
+#'
+#' @examples
+#' data(data_bitcoin_multi)
+#'
+#'
+"data_bitcoin_multi"

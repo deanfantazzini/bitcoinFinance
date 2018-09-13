@@ -1,0 +1,50 @@
+Package: bitcoinFinance
+Type: Package
+Title: Quantitative Finance with Cryptocurrencies
+Version: 0.1.0
+Author: Dean Fantazzini
+Maintainer: Dean Fantazzini <dean.fantazzini@gmail.com>
+Description: This is a collection of functions for the financial modelling of bitcoin and other cryptocurrencies.
+Depends: R (>= 3.0.0)
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Imports:
+  Quandl,
+  fredr,
+  plyr,
+  quantmod,
+  xml2,
+  rvest,
+  magrittr,
+  lubridate,
+  jsonlite,
+  rugarch,
+  matrixStats,
+  curl,
+  rjson,
+  xts,
+  alabama,
+  XML,
+  stringr,
+  dplyr,
+  highfrequency,
+  rlang,
+  zoo,
+  systemfit,
+  ggplot2,
+  PerformanceAnalytics,
+  QuantTools,
+  corpcor,
+  lassovar,
+  stats,
+  RJSONIO
+Remotes: lcallot/lassovar
+RoxygenNote: 6.1.0
+Suggests:
+    knitr,
+    rmarkdown,
+    aTSA,
+    forecast
+VignetteBuilder: knitr
+Date/Publication: 2018-08-06 00:44:37
