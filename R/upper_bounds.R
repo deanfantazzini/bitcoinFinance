@@ -24,12 +24,12 @@
 #' @examples
 #' #This reproduces the example in Woo et al.(2013).
 #' #It uses data up to December 2012.
-#'  btc.upped.bound.user(HSC.ratio=0.04, Ecommerce= 224, bitcoinshare=0.1, GDP.ratio=5,
+#'  btc.upper.bound.user(HSC.ratio=0.04, Ecommerce= 224, bitcoinshare=0.1, GDP.ratio=5,
 #'  metrics=c(8.5, 0.8, 4.2), price.silver=29, total.silver.eagles=337031982, TOTBC.u=10613175)
 #' #  1398.673
 #'
 
-btc.upped.bound.user=function(HSC.ratio=0.04, Ecommerce= 224, bitcoinshare=0.1, GDP.ratio=5,
+btc.upper.bound.user=function(HSC.ratio=0.04, Ecommerce= 224, bitcoinshare=0.1, GDP.ratio=5,
                               metrics=c(9, 0.9, 4.5), price.silver=17,  total.silver.eagles=400000000, TOTBC.u=11000000){
 
   V_ecomm.u <- HSC.ratio * Ecommerce * bitcoinshare * GDP.ratio
@@ -55,7 +55,7 @@ btc.upped.bound.user=function(HSC.ratio=0.04, Ecommerce= 224, bitcoinshare=0.1, 
 #' categories will be used (which may be different across categories).Otherwise a common year equal to lastyear
 #' will be used for all categories: in this case be sure the the common year is available for all the 3 categories used
 #' to compute the upper bound, otherwise you will get an error.
-#' @return btc.upped.bound.web is the bitcoin upper bound
+#' @return btc.upper.bound.web is the bitcoin upper bound
 #' @details
 #' This function computes the bitcoin upper bound with inputs taken from the web
 #'
@@ -75,11 +75,11 @@ btc.upped.bound.user=function(HSC.ratio=0.04, Ecommerce= 224, bitcoinshare=0.1, 
 #' \dontrun{
 #'  #Here insert your valid FRED key
 #'  fredkey ="5565e828f27269b6ed4f3c2552d0cc8f"
-#'  btc.upped.bound.web(fredkey)
+#'  btc.upper.bound.web(fredkey)
 #' }
 
 
-btc.upped.bound.web=function(fredkey,start.date="2004-01-01",end.date="2014-12-31",
+btc.upper.bound.web=function(fredkey,start.date="2004-01-01",end.date="2014-12-31",
                              lastyear=NULL){
   #==============================================
   #   VEcommerce
@@ -205,7 +205,7 @@ btc.upped.bound.web=function(fredkey,start.date="2004-01-01",end.date="2014-12-3
   if(!is.null(lastyear)){
     required.year.TOTBC <- mydata[mydata$Date %in% as.character(lastyear),]
   }
-  btc.upped.bound.web <- (V_ecomm+V_moneytransfer+V_storeofvalue)*1000000000 /
+  btc.upper.bound.web <- (V_ecomm+V_moneytransfer+V_storeofvalue)*1000000000 /
     required.year.TOTBC$Value
-  return(btc.upped.bound.web)
+  return(btc.upper.bound.web)
 }
