@@ -290,7 +290,7 @@ prepareOrders <- function(market,
     # Read the data file and retrieve bids and asks from it
     # After retrieving, coerce the data structure to
     # a data frame and brush it up
-    raw_json <- fromJSON(file=filepath)
+    raw_json <- rjson::fromJSON(file=filepath)
     asks_json <- raw_json$result$asks
     asks <- as.data.frame(t(as.data.frame(asks_json)))
     rownames(asks) <- NULL
