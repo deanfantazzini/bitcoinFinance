@@ -27,7 +27,7 @@
 #'
 #' @export
 #' @importFrom lubridate ymd
-#' @importFrom jsonlite fromJSON
+#' @importFrom rjson fromJSON
 #' @importFrom plyr mutate
 #'
 #' @examples
@@ -37,7 +37,9 @@ poloniex_download <- function(from="USDT", to="ETH", start="2001-01-01",end="201
   end <- as.numeric(as.POSIXct(lubridate::ymd(end)))
   start <- as.numeric(as.POSIXct(lubridate::ymd(start)))
   link <- "https://poloniex.com/public?command=returnChartData&currencyPair=" %p% from %p% "_" %p% to %p% "&start=" %p% start %p% "&end=" %p% end %p% "&period=" %p% period
-  data_ts <-jsonlite::fromJSON(link)
+  #data_ts <-jsonlite::fromJSON(link) #old solution
+  data_ts <-rjson::fromJSON(file=link)
+  data_ts <- do.call(rbind.data.frame, data_ts)
   data_ts <- plyr::mutate(data_ts, date=as.Date(as.POSIXct(data_ts$date, origin="1970-01-01")))
   return(data_ts)
 }
