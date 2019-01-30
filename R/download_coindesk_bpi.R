@@ -8,7 +8,7 @@
 #' @return a xts object containing the required historical daily data for the CoinDesk Bitcoin Price Index
 #'
 #' @export
-#' @importFrom RJSONIO fromJSON
+#' @importFrom rjson fromJSON
 #' @importFrom xts xts
 #'
 #' @examples
@@ -17,7 +17,8 @@
 
 coindesk_download <- function(start="2011-01-01",end="2017-07-27") {
   link <- "http://api.coindesk.com/v1/bpi/historical/close.json?start=" %p% start %p% "&end=" %p% end
-  dat <-RJSONIO::fromJSON(link)
+  #dat <-RJSONIO::fromJSON(link) # old solution
+  dat <-rjson::fromJSON(file=link)
   dat <- xts::xts(as.numeric(dat$bpi), as.Date(names(dat$bpi), format='%Y-%m-%d'))
   colnames(dat)<-"XBP"
   return(dat)
