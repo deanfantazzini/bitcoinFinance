@@ -8,7 +8,7 @@ The `bitcoinFinance` package and the `bubble` package are the companion material
 
 The `bitcoinFinance` package is a collection of functions for the financial modelling of bitcoin and other cryptocurrencies.
 
-You can install the package using the commands:
+You can install the package using the commands: 
 ``` {.r}
 if (!require("devtools")) install.packages("devtools")
 devtools::install_github("deanfantazzini/bitcoinFinance")
