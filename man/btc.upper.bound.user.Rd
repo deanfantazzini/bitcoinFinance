@@ -4,9 +4,16 @@
 \alias{btc.upper.bound.user}
 \title{Compute the bitcoin upper bound with user-delivered inputs}
 \usage{
-btc.upper.bound.user(HSC.ratio = 0.04, Ecommerce = 224,
-  bitcoinshare = 0.1, GDP.ratio = 5, metrics = c(9, 0.9, 4.5),
-  price.silver = 17, total.silver.eagles = 4e+08, TOTBC.u = 1.1e+07)
+btc.upper.bound.user(
+  HSC.ratio = 0.04,
+  Ecommerce = 224,
+  bitcoinshare = 0.1,
+  GDP.ratio = 5,
+  metrics = c(9, 0.9, 4.5),
+  price.silver = 17,
+  total.silver.eagles = 4e+08,
+  TOTBC.u = 1.1e+07
+)
 }
 \arguments{
 \item{HSC.ratio}{is the US household checking deposits and cash / US personal consumption ratio}

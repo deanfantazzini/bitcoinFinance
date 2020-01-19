@@ -4,8 +4,13 @@
 \alias{poloniex_download}
 \title{Download time series data of a (pure) cryptocurrency pair.}
 \usage{
-poloniex_download(from = "USDT", to = "ETH", start = "2001-01-01",
-  end = "2017-01-01", period = 86400)
+poloniex_download(
+  from = "USDT",
+  to = "ETH",
+  start = "2001-01-01",
+  end = "2017-01-01",
+  period = 86400
+)
 }
 \arguments{
 \item{from}{is the base currency of the currency pair}

@@ -4,9 +4,16 @@
 \alias{cryptowatch_data_download}
 \title{Download trades data or order book data from cryptowat.ch}
 \usage{
-cryptowatch_data_download(exchange, pair, query_type,
-  query_options = NULL, data_dir = NULL, file_prefix = NULL,
-  logfile = "loader.log", register = "register.csv")
+cryptowatch_data_download(
+  exchange,
+  pair,
+  query_type,
+  query_options = NULL,
+  data_dir = NULL,
+  file_prefix = NULL,
+  logfile = "loader.log",
+  register = "register.csv"
+)
 }
 \arguments{
 \item{exchange}{is the required exchange}

@@ -4,9 +4,14 @@
 \alias{bitcoinity_download}
 \title{Download the time series data of an exchange pair involving bitcoin and a fiat currency.}
 \usage{
-bitcoinity_download(currency = "USD", data_type = "price_volume",
-  exchange = "bitstamp", freq = "hour", time_length = "30d",
-  sd = NULL)
+bitcoinity_download(
+  currency = "USD",
+  data_type = "price_volume",
+  exchange = "bitstamp",
+  freq = "hour",
+  time_length = "30d",
+  sd = NULL
+)
 }
 \arguments{
 \item{currency}{is the quote currency of the currency pair}

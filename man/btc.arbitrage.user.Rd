@@ -4,9 +4,13 @@
 \alias{btc.arbitrage.user}
 \title{Compute the theoretical no-arbitrage market price of an altcoin based on the SHA-256 algorithm}
 \usage{
-btc.arbitrage.user(block.reward.bitcoin = 12.5,
-  hashing.power.miner = 10^12, Difficulty.bitcoin = 922724699726,
-  block.reward.altcoin = 12.5, Difficulty.altcoin = 109634813602)
+btc.arbitrage.user(
+  block.reward.bitcoin = 12.5,
+  hashing.power.miner = 10^12,
+  Difficulty.bitcoin = 922724699726,
+  block.reward.altcoin = 12.5,
+  Difficulty.altcoin = 109634813602
+)
 }
 \arguments{
 \item{block.reward.bitcoin}{is the block reward for bitcoin (currently 12.5 BTC/block)}

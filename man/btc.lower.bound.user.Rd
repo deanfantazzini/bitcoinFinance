@@ -4,8 +4,13 @@
 \alias{btc.lower.bound.user}
 \title{Compute the bitcoin lower bound with user-delivered inputs}
 \usage{
-btc.lower.bound.user(block.reward = 12.5, hashing.power.miner = 10^12,
-  Difficulty = 559970892890, price.kWh = 0.125, W.GHs = 0.25)
+btc.lower.bound.user(
+  block.reward = 12.5,
+  hashing.power.miner = 10^12,
+  Difficulty = 559970892890,
+  price.kWh = 0.125,
+  W.GHs = 0.25
+)
 }
 \arguments{
 \item{block.reward}{is the block reward (currently 12.5 BTC/block)}

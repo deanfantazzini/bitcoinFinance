@@ -4,8 +4,14 @@
 \alias{lassovar.RC.1step.rolling.VaR.forecast}
 \title{Compute a Lasso-VAR model for realized covariance matrices with a rolling window and compute 1-step-ahead VaR forecasts}
 \usage{
-lassovar.RC.1step.rolling.VaR.forecast(cleaned.rc, daily_ret, weights,
-  quantiles = c(0.05, 0.1), es.alpha = 0.025, roll.window = 250)
+lassovar.RC.1step.rolling.VaR.forecast(
+  cleaned.rc,
+  daily_ret,
+  weights,
+  quantiles = c(0.05, 0.1),
+  es.alpha = 0.025,
+  roll.window = 250
+)
 }
 \arguments{
 \item{cleaned.rc}{is a list containing the realized covariances}

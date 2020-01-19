@@ -4,8 +4,11 @@
 \alias{download_coinmarketcap_daily}
 \title{Download the daily data of the selected cryptocurrency from coinmarketcap.com}
 \usage{
-download_coinmarketcap_daily(cryptoname = "bitcoin",
-  start_date = 20130428, end_date = 20170705)
+download_coinmarketcap_daily(
+  cryptoname = "bitcoin",
+  start_date = 20130428,
+  end_date = 20170705
+)
 }
 \arguments{
 \item{cryptoname}{is the selected cryptocurrency}
@@ -24,6 +27,7 @@ This function downloads the daily data of the selected cryptocurrency from coinm
 This function downloads the daily data of the selected cryptocurrencies from coinmarketcap.com
 }
 \examples{
-download_coinmarketcap_daily(cryptoname="ethereum", end_date=20170704)
+dat<-download_coinmarketcap_daily(cryptoname="ethereum",start_date=20160101,end_date=20170704)
+head(dat)
 
 }

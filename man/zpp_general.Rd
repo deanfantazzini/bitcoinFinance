@@ -4,9 +4,14 @@
 \alias{zpp_general}
 \title{Compute the general version of the ZPP}
 \usage{
-zpp_general(prices, mean.model = list(armaOrder = c(0, 0)),
+zpp_general(
+  prices,
+  mean.model = list(armaOrder = c(0, 0)),
   variance.model = list(garchOrder = c(1, 1)),
-  distribution.model = "norm", n.days = 250, scenarios = 20000)
+  distribution.model = "norm",
+  n.days = 250,
+  scenarios = 20000
+)
 }
 \arguments{
 \item{prices}{is a numeric vector containing the prices series}

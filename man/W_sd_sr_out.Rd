@@ -4,8 +4,7 @@
 \alias{W_sd_sr_out}
 \title{Compute the optimal power-law parameter and the portfolio weights according to the approach proposed by Kristoufek (2013) - [out-of-sample]}
 \usage{
-W_sd_sr_out(V, alpha, ret_data, rf = 0.005, type = "StdDev",
-  lag_ws = 1)
+W_sd_sr_out(V, alpha, ret_data, rf = 0.005, type = "StdDev", lag_ws = 1)
 }
 \arguments{
 \item{V}{a zoo object containing the Google Trends search terms (cryptocurrency ticker or other type)}

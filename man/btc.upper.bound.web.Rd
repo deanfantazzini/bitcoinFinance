@@ -4,8 +4,12 @@
 \alias{btc.upper.bound.web}
 \title{Compute the bitcoin upper bound with web-delivered inputs}
 \usage{
-btc.upper.bound.web(fredkey, start.date = "2004-01-01",
-  end.date = "2014-12-31", lastyear = NULL)
+btc.upper.bound.web(
+  fredkey,
+  start.date = "2004-01-01",
+  end.date = "2014-12-31",
+  lastyear = NULL
+)
 }
 \arguments{
 \item{fredkey}{is the FRED API KEY (requires registration)}

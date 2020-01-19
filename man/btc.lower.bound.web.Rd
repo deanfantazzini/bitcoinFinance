@@ -4,8 +4,11 @@
 \alias{btc.lower.bound.web}
 \title{Compute the bitcoin lower bound with web-delivered inputs}
 \usage{
-btc.lower.bound.web(block.reward = 12.5, hashing.power.miner = 10^12,
-  W.GHs = 0.25)
+btc.lower.bound.web(
+  block.reward = 12.5,
+  hashing.power.miner = 10^12,
+  W.GHs = 0.25
+)
 }
 \arguments{
 \item{block.reward}{is the block reward (currently 12.5 BTC/block)}

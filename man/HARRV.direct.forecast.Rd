@@ -4,8 +4,14 @@
 \alias{HARRV.direct.forecast}
 \title{Compute the direct forecasts for the HAR-RV model.}
 \usage{
-HARRV.direct.forecast(dat, periods = c(1, 5, 22), type = "HARRV",
-  transform = NULL, roll.window = 1621, lag_fore = 1)
+HARRV.direct.forecast(
+  dat,
+  periods = c(1, 5, 22),
+  type = "HARRV",
+  transform = NULL,
+  roll.window = 1621,
+  lag_fore = 1
+)
 }
 \arguments{
 \item{dat}{is a xts object containing intraday 5-minute regularly spaces prices (see example below)}

@@ -19,20 +19,15 @@ This function downloads the weekly data of the selected cryptocurrency from coin
 }
 \details{
 This function downloads the weekly data of the selected cryptocurrencies from coinmarketcap.com .
-Warning: this function is quite time-consuming becasue it opens a weekly webpage one after the other.
+Warning: this function is quite time-consuming because it opens a weekly webpage one after the other.
 It is used here for educational purposes only.
 }
 \examples{
 dates<-seq(as.Date("2015/08/09"), by = "week", length.out = 3)
 dates <- as.numeric( gsub("-", "", dates) )
-cryptoname <-c("bitcoin", "ethereum")
-coins_all=NULL
-for (nn in cryptoname) {
-  print(nn)
-  pcoin<-download_coinmarketcap_weekly(dates, nn)
-  coins_all=cbind(coins_all,pcoin)
-}
-coins_all=cbind(dates, coins_all)
+cryptoname <-"Bitcoin"
+coin<-download_coinmarketcap_weekly(dates, cryptoname)
+coins_all=cbind(dates, coin)
 colnames(coins_all)=c("dates",cryptoname)
 as.data.frame(coins_all)
 

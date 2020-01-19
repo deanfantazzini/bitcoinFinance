@@ -4,9 +4,15 @@
 \alias{bitcoinity_download_DIK}
 \title{Download the time series data of the depth for price impact, for an exchange pair involving bitcoin and a fiat currency.}
 \usage{
-bitcoinity_download_DIK(bp = "10", bu = "b", currency = "USD",
-  data_type = "bidask_sum", exchange = "bitstamp", freq = "hour",
-  time_length = "30d")
+bitcoinity_download_DIK(
+  bp = "10",
+  bu = "b",
+  currency = "USD",
+  data_type = "bidask_sum",
+  exchange = "bitstamp",
+  freq = "hour",
+  time_length = "30d"
+)
 }
 \arguments{
 \item{bp}{is the price range (k) for the depth for price impact}

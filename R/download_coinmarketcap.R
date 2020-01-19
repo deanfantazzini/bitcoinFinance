@@ -15,16 +15,17 @@
 #' @importFrom magrittr %>%
 #'
 #' @examples
-#' download_coinmarketcap_daily(cryptoname="ethereum", end_date=20170704)
+#' dat<-download_coinmarketcap_daily(cryptoname="ethereum",start_date=20160101,end_date=20170704)
+#' head(dat)
 #'
 
-download_coinmarketcap_daily = function(cryptoname="bitcoin", start_date=20130428, end_date=20170705){
+download_coinmarketcap_daily <- function(cryptoname="bitcoin", start_date=20130428, end_date=20170705){
   news <- xml2::read_html( paste("https://coinmarketcap.com/currencies/", cryptoname,"/historical-data/?start=",start_date,"&end=",end_date, sep="") )
-  table_news <- news %>%  rvest::html_nodes("table")
-  table_news <- table_news[[1]] %>% rvest::html_table()
+  news <- rvest::html_nodes(news, "table")
+  news <- rvest::html_table(news)
+  table_news <- news[[3]]
   return(table_news)
 }
-
 
 #' Download the weekly data of the selected cryptocurrency from coinmarketcap.com
 #'
@@ -35,25 +36,19 @@ download_coinmarketcap_daily = function(cryptoname="bitcoin", start_date=2013042
 #' @return price is a numeric vector of weekly prices
 #' @details
 #' This function downloads the weekly data of the selected cryptocurrencies from coinmarketcap.com .
-#' Warning: this function is quite time-consuming becasue it opens a weekly webpage one after the other.
+#' Warning: this function is quite time-consuming because it opens a weekly webpage one after the other.
 #' It is used here for educational purposes only.
 #'
 #' @export
 #' @importFrom xml2 read_html
 #' @importFrom rvest html_nodes html_table
-#' @importFrom magrittr %>%
 #'
 #' @examples
 #' dates<-seq(as.Date("2015/08/09"), by = "week", length.out = 3)
 #' dates <- as.numeric( gsub("-", "", dates) )
-#' cryptoname <-c("bitcoin", "ethereum")
-#' coins_all=NULL
-#' for (nn in cryptoname) {
-#'   print(nn)
-#'   pcoin<-download_coinmarketcap_weekly(dates, nn)
-#'   coins_all=cbind(coins_all,pcoin)
-#' }
-#' coins_all=cbind(dates, coins_all)
+#' cryptoname <-"Bitcoin"
+#' coin<-download_coinmarketcap_weekly(dates, cryptoname)
+#' coins_all=cbind(dates, coin)
 #' colnames(coins_all)=c("dates",cryptoname)
 #' as.data.frame(coins_all)
 #'
@@ -61,13 +56,10 @@ download_coinmarketcap_weekly <- function(dates, cryptoname){
   price= NULL
   for (page_number in 1:length(dates)) {
     news <- xml2::read_html(paste("https://coinmarketcap.com/historical/", dates[page_number], sep=""))
-    id_crypto<-paste0("#id-", cryptoname, " .price")
-    price = c(price, news %>%
-                rvest::html_nodes(id_crypto) %>%
-                rvest::html_text())
+    news <- rvest::html_nodes(news, "table")
+    news <- rvest::html_table(news)
+    news <- subset(news[[3]], news[[3]]$Name == cryptoname, select = "Price")
+    price = c(price, as.numeric(gsub("[$]", "", news)) )
   }
-  price <- gsub("[$] ", "", price)
-  price <- gsub("[$]", "", price)
-  price <- as.numeric(price)
   return(price)
 }

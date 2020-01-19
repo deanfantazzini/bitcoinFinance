@@ -4,10 +4,13 @@
 \alias{bitcoincharts_random_download}
 \title{Download a pre-specified number of random bitcoin trades time series from api.bitcoincharts.com}
 \usage{
-bitcoincharts_random_download(number_of_series_needed = 5,
+bitcoincharts_random_download(
+  number_of_series_needed = 5,
   exceptions = c("okcoinCNY.csv.gz", "coincheckJPY.csv.gz"),
-  start_date = "2015-08-03", end_date = "2017-07-01",
-  save_data = FALSE)
+  start_date = "2015-08-03",
+  end_date = "2017-07-01",
+  save_data = FALSE
+)
 }
 \arguments{
 \item{number_of_series_needed}{is the desidered number of (randomly selected) bitcoin trades series}

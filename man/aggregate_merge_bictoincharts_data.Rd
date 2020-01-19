@@ -4,8 +4,11 @@
 \alias{aggregate_merge_bictoincharts_data}
 \title{Aggregate and merge time series data downloaded from bitcoincharts}
 \usage{
-aggregate_merge_bictoincharts_data(data_list,
-  level_of_aggregation = "minutes", aggregate_every = 15)
+aggregate_merge_bictoincharts_data(
+  data_list,
+  level_of_aggregation = "minutes",
+  aggregate_every = 15
+)
 }
 \arguments{
 \item{data_list}{is a list containing the dataframes of several time series data downloaded from bitcoincharts}

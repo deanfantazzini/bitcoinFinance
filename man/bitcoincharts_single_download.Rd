@@ -4,9 +4,12 @@
 \alias{bitcoincharts_single_download}
 \title{Download a pre-specified bitcoin currency pair time series from api.bitcoincharts.com}
 \usage{
-bitcoincharts_single_download(name = "bitstampUSD.csv.gz",
-  start_date = "2015-08-03", end_date = "2017-07-01",
-  save_data = FALSE)
+bitcoincharts_single_download(
+  name = "bitstampUSD.csv.gz",
+  start_date = "2015-08-03",
+  end_date = "2017-07-01",
+  save_data = FALSE
+)
 }
 \arguments{
 \item{name}{is the name of the file to be downloaded from api.bitcoincharts.com}
