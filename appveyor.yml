@@ -16,6 +16,7 @@ cache:
 # Adapt as necessary starting from here
 
 build_script:
+  - Rscript -e "install.packages(c('RCurl'), repos = 'https://cran.rstudio.com')"
   - travis-tool.sh install_deps
 
 test_script:
