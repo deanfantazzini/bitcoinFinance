@@ -14,9 +14,11 @@ cache:
   - C:\RLibrary
 
 # Adapt as necessary starting from here
-
+environment:
+  USE_RTOOLS: true
+  R_REMOTES_STANDALONE: true
+  
 build_script:
-  - Rscript -e "install.packages(c('RCurl'), repos = 'https://cran.rstudio.com')"
   - travis-tool.sh install_deps
 
 test_script:
