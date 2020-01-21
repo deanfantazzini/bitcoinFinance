@@ -60,8 +60,10 @@ btc.lower.bound.user=function(block.reward = 12.5, hashing.power.miner = 10^12, 
 #' @references Hayes, A. S. (2017). Cryptocurrency Value Formation: An empirical study leading to a cost of production model for valuing Bitcoin. Telematics and Informatics, forthcoming.
 #'
 #' @examples
-#'  btc.lower.bound.web(W.GHs=0.2)
 #'
+#' \dontrun{
+#'  btc.lower.bound.web(W.GHs=0.2)
+#'  }
 
 btc.lower.bound.web=function(block.reward = 12.5, hashing.power.miner = 10^12, W.GHs=0.25){
 

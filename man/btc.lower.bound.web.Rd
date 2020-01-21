@@ -29,8 +29,10 @@ This function computes the bitcoin lower bound with some inputs taken from the w
 b) the electricity price per kWh in dollars (given by the latest US average retail price - residential sector)
 }
 \examples{
- btc.lower.bound.web(W.GHs=0.2)
 
+\dontrun{
+ btc.lower.bound.web(W.GHs=0.2)
+ }
 }
 \references{
 Hayes, A. S. (2017). Cryptocurrency Value Formation: An empirical study leading to a cost of production model for valuing Bitcoin. Telematics and Informatics, forthcoming.
