@@ -15,7 +15,7 @@
 #' @export
 #' @importFrom dplyr group_by summarise ungroup %>%
 #' @importFrom xts xts make.index.unique
-#' @importFrom highfrequency aggregatets makeReturns
+#' @importFrom highfrequency aggregateTS makeReturns
 #' @importFrom rlang .data
 #'
 #'
@@ -39,12 +39,12 @@ aggregate_merge_bictoincharts_data <- function(data_list,
         price_ts <- do.call( merge, c(lapply(data_list, function(x){
                             tmp <- x %>% group_by(.data$timestamp) %>% summarise(price = mean(.data$price)) %>% ungroup()
                            tmp <- xts::xts(x = tmp$price, order.by = tmp$timestamp)
-                           highfrequency::aggregatets(tmp, on=level_of_aggregation,k=aggregate_every)
+                           highfrequency::aggregateTS(tmp, on=level_of_aggregation,k=aggregate_every)
                            }), list(all = F) ) ) # consider only common data
         names(price_ts)=names(data_list)
 
         # calculating daily returns
-        daily_returns <- highfrequency::makeReturns(aggregatets(price_ts, on = 'days', k = 1, dropna = T))
+        daily_returns <- highfrequency::makeReturns(aggregateTS(price_ts, on = 'days', k = 1, dropna = T))
         daily_returns <- xts::make.index.unique(daily_returns, drop = T)
         names(daily_returns)=names(data_list)
 

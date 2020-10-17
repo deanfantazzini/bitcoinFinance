@@ -4,9 +4,9 @@
 #'
 #' @param dat is a xts object containing intraday 5-minute regularly spaces prices (see example below)
 #' @param periods is a vector of integers indicating over how days the realized measures in the model should be aggregated.
-#' By default periods = c(1,5,22). It is needed for the computation of the \link[highfrequency]{harModel} of the \code{highfrequency} package
-#' @param type is a string referring to the type of HAR model you would like to estimate using \link[highfrequency]{harModel}. By default type = "HARRV".
-#' @param transform optionally a string referring to a function that transforms both the dependent and explanatory variables in the \link[highfrequency]{harModel}.
+#' By default periods = c(1,5,22). It is needed for the computation of the \link[highfrequency]{HARmodel} of the \code{highfrequency} package
+#' @param type is a string referring to the type of HAR model you would like to estimate using \link[highfrequency]{HARmodel}. By default type = "HARRV".
+#' @param transform optionally a string referring to a function that transforms both the dependent and explanatory variables in the \link[highfrequency]{HARmodel}.
 #'  By default transform=NULL, so no transformation is done. Typical other choices in this context would be "log" or "sqrt".
 #' @param roll.window is the rolling window size used for estimating the HAR-RV model
 #' @param lag_fore is the desired forecasting horizon. Default is 1 (that is, 1-step-ahead direct forecasts)
@@ -21,7 +21,7 @@
 #' @importFrom zoo index
 #' @importFrom lubridate days
 #' @importFrom zoo rollapply
-#' @importFrom highfrequency makeReturns harModel
+#' @importFrom highfrequency makeReturns HARmodel
 #' @importFrom stats lm as.formula predict na.omit
 #'
 #' @references Chevillon, G. (2007). Direct multi-step estimation and forecasting. Journal of Economic Surveys,21(4),746-785.
@@ -48,11 +48,11 @@ HARRV.direct.forecast <- function(dat,periods=c(1,5,22),type="HARRV",
                                                    transform=NULL, roll.window = 1621, lag_fore=1){
   #HAR-RV
   dat_ret = highfrequency::makeReturns(dat)
-  btc_harrv<- highfrequency::harModel(data=dat_ret,periods=periods,type=type,h=1,transform=NULL)
-  daily_dat<-xts::as.xts(btc_harrv$model)
+  btc_harrv<- highfrequency::HARmodel(data=dat_ret,periods=periods,type=type,h=1,transform=NULL, inputType = "returns")
+  daily_dat<-xts::xts(btc_harrv$model, order.by = btc_harrv$dates)
   names_for_eq <- colnames(daily_dat)
   lagged<-xts::lag.xts(daily_dat[,2:length(names_for_eq)], k=lag_fore-1, na.pad=FALSE)
-  lagged<- na.omit( merge.xts(daily_dat[,1], lagged) )
+  lagged<- na.omit( xts::merge.xts(daily_dat[,1], lagged) )
   formula_RV<-stats::as.formula( paste(names_for_eq[1], paste0(names_for_eq[2:length(names_for_eq)], collapse="+"), sep = '~') )
 
   prediction<-function(series){
@@ -61,7 +61,7 @@ HARRV.direct.forecast <- function(dat,periods=c(1,5,22),type="HARRV",
     nextOb <-  date_last+lubridate::days(1) # To get the first row that follows the window
     if ( nextOb<=zoo::index(last(daily_dat)) ){   # You won't predict the last one
       # make forecast
-      predicted <- predict( mod,newdata=data.frame(lagged[nextOb,c("y","x.RV1","x.RV5","x.RV22")]) )
+      predicted <- predict( mod,newdata=data.frame(lagged[nextOb,c("y","RV1","RV5","RV22")]) )
       dat_pred<-c( predicted ,daily_dat[nextOb,'y'])
       names(dat_pred)=c("predicted", "realized")
     return(dat_pred)

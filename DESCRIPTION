@@ -11,7 +11,6 @@ Encoding: UTF-8
 LazyData: true
 Imports:
   Quandl,
-  fredr,
   plyr,
   quantmod,
   xml2,
@@ -38,9 +37,12 @@ Imports:
   corpcor,
   lassovar,
   stats,
-  RJSONIO
-Remotes: lcallot/lassovar
-RoxygenNote: 7.0.2
+  RJSONIO,
+  fredr
+Remotes: 
+   github::lcallot/lassovar,
+   github::sboysel/fredr
+RoxygenNote: 7.1.1
 Suggests:
     knitr,
     rmarkdown,

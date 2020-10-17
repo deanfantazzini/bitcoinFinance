@@ -4,7 +4,9 @@
 \name{crypto_google_data}
 \alias{crypto_google_data}
 \title{Weekly cryptocurrencies price data and relative weekly Google trends data based on ticker searches}
-\format{A dataframe of 145 rows and 11 columns}
+\format{
+A dataframe of 145 rows and 11 columns
+}
 \source{
 \href{https://coinmarketcap.com/}{CryptoCurrency Market Capitalizations} .
 }

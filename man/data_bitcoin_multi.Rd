@@ -4,7 +4,8 @@
 \name{data_bitcoin_multi}
 \alias{data_bitcoin_multi}
 \title{Daily bitcoin prices and other 10 regressors which can be used for multivariate forecasting}
-\format{A dataframe of 1447 rows and 12 columns
+\format{
+A dataframe of 1447 rows and 12 columns
 \describe{
  \item{\code{timestamp}}{daily time-stamp}
  \item{\code{Close}}{Average BTCUSD market price across major bitcoin exchanges. Source: blockchain.info}
@@ -18,7 +19,8 @@
  \item{\code{New_posts}}{The number of new posts on online BitCoin forums extracted from bitcointalk.org.}
  \item{\code{New_members}}{The number of new members on online BitCoin forums extracted from bitcointalk.org}
  \item{\code{Dow_Jones}}{Dow Jones stock market index. Source: yahoo.finance}
-}}
+}
+}
 \usage{
 data(data_bitcoin_multi)
 }
