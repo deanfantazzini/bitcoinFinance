@@ -11,8 +11,8 @@
 #'
 #' @export
 #' @importFrom xml2 read_html
-#' @importFrom rvest html_nodes html_table
-#' @importFrom magrittr %>%
+#' @importFrom rvest html_nodes html_text
+#' @importFrom jsonlite fromJSON
 #'
 #' @examples
 #' dat<-download_coinmarketcap_daily(cryptoname="ethereum",start_date=20160101,end_date=20170704)
@@ -20,10 +20,11 @@
 #'
 
 download_coinmarketcap_daily <- function(cryptoname="bitcoin", start_date=20130428, end_date=20170705){
-  news <- xml2::read_html( paste("https://coinmarketcap.com/currencies/", cryptoname,"/historical-data/?start=",start_date,"&end=",end_date, sep="") )
-  news <- rvest::html_nodes(news, "table")
-  news <- rvest::html_table(news)
-  table_news <- news[[3]]
+  page = xml2::read_html( paste("https://coinmarketcap.com/currencies/", cryptoname,"/historical-data/?start=",start_date,"&end=",end_date, sep="") )
+  data_node = rvest::html_nodes(page, "[id='__NEXT_DATA__']")
+  json_from_node = rvest::html_text(data_node)
+  list_from_json = jsonlite::fromJSON(json_from_node)
+  table_news = list_from_json$props$initialState$cryptocurrency$ohlcvHistorical[[1]]$quotes
   return(table_news)
 }
 
