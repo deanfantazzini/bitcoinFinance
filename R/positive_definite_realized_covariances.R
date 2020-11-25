@@ -35,7 +35,7 @@
 rc_pd <- function(price_xts){
   # calculating daily variance-covariance matrices and put them in a list
   var_covar_m <- lapply( split(price_xts, f = as.Date(zoo::index(price_xts))), function(x) {
-    cov <- highfrequency::rCov(x, cor = FALSE, align.by = NULL, align.period = NULL, makeReturns = T)
+    cov <- highfrequency::rCov(x, cor = FALSE, alignBy=NULL, alignPeriod=NULL, makeReturns = T)
   })
 
   # not all estimated var-covar matrices are positive semidefinite
