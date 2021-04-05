@@ -5,17 +5,20 @@
 \title{Download the daily data of the selected cryptocurrency from coinmarketcap.com}
 \usage{
 download_coinmarketcap_daily(
-  cryptoname = "bitcoin",
-  start_date = 20130428,
-  end_date = 20170705
+  id = 1,
+  currency = "USD",
+  start_date = "2018-09-16",
+  end_date = "2020-09-23"
 )
 }
 \arguments{
-\item{cryptoname}{is the selected cryptocurrency}
+\item{id}{is the coinmarketcap ID used for the selected cryptocurrency (see the coinmarketcap API for the full ID list)}
 
-\item{start_date}{is the starting date (format YYYYMMDD) for downloading the selected cryptocurrency daily data}
+\item{currency}{is the reference currency used in the crypto pair}
 
-\item{end_date}{is the ending date (format YYYYMMDD) for downloading the selected cryptocurrency daily data}
+\item{start_date}{is the starting date (format YYYY-MM-DD) for downloading the selected cryptocurrency daily data}
+
+\item{end_date}{is the ending date (format YYYY-MM-DD) for downloading the selected cryptocurrency daily data}
 }
 \value{
 table_news is a dataframe with daily open high low close turnover and market capitalization
@@ -27,7 +30,7 @@ This function downloads the daily data of the selected cryptocurrency from coinm
 This function downloads the daily data of the selected cryptocurrencies from coinmarketcap.com
 }
 \examples{
-dat<-download_coinmarketcap_daily(cryptoname="ethereum",start_date=20160101,end_date=20170704)
+dat<-download_coinmarketcap_daily(id=2,currency="USD",start_date="2016-09-16",end_date="2020-09-23")
 head(dat)
 
 }

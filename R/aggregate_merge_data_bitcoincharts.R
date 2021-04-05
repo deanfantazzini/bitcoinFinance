@@ -44,7 +44,7 @@ aggregate_merge_bictoincharts_data <- function(data_list,
         names(price_ts)=names(data_list)
 
         # calculating daily returns
-        daily_returns <- highfrequency::makeReturns(aggregateTS(price_ts, on = 'days', k = 1, dropna = T))
+        daily_returns <- highfrequency::makeReturns(aggregateTS(price_ts, alignBy = 'days', alignPeriod = 1, dropna = T))
         daily_returns <- xts::make.index.unique(daily_returns, drop = T)
         names(daily_returns)=names(data_list)
 
