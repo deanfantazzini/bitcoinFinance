@@ -39,7 +39,7 @@ aggregate_merge_bictoincharts_data <- function(data_list,
         price_ts <- do.call( merge, c(lapply(data_list, function(x){
                             tmp <- x %>% group_by(.data$timestamp) %>% summarise(price = mean(.data$price)) %>% ungroup()
                            tmp <- xts::xts(x = tmp$price, order.by = tmp$timestamp)
-                           highfrequency::aggregateTS(tmp, on=level_of_aggregation,k=aggregate_every)
+                           highfrequency::aggregateTS(tmp, alignBy=level_of_aggregation, alignPeriod=aggregate_every)
                            }), list(all = F) ) ) # consider only common data
         names(price_ts)=names(data_list)
 
