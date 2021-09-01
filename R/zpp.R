@@ -71,7 +71,7 @@ zpp_norm <- function(prices, n.days=250 ){
   last.price<-tail(prices,n=1)
   var.diff<-var(price.difference)
   mu <- mean(price.difference)
-  closed.zpp.norm=2*pnorm( -last.price, mean=mu*250, sd=sqrt(var.diff*250) )
+  closed.zpp.norm=2*pnorm( -last.price, mean=mu*n.days, sd=sqrt(var.diff*n.days) )
   return(closed.zpp.norm)
 }
 
