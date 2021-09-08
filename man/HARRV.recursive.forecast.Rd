@@ -7,7 +7,7 @@
 HARRV.recursive.forecast(
   dat,
   periods = c(1, 5, 22),
-  type = "HARRV",
+  type = "HAR",
   transform = NULL,
   roll.window = 1621,
   h = 1
@@ -19,7 +19,7 @@ HARRV.recursive.forecast(
 \item{periods}{is a vector of integers indicating over how days the realized measures in the model should be aggregated.
 By default periods = c(1,5,22). It is needed for the computation of the \link[highfrequency]{HARmodel} of the \code{highfrequency} package}
 
-\item{type}{is a string referring to the type of HAR model you would like to estimate using \link[highfrequency]{HARmodel}. By default type = "HARRV".}
+\item{type}{is a string referring to the type of HAR model you would like to estimate using \link[highfrequency]{HARmodel}. By default type = "HAR".}
 
 \item{transform}{optionally a string referring to a function that transforms both the dependent and explanatory variables in the \link[highfrequency]{HARmodel}.
 By default transform=NULL, so no transformation is done. Typical other choices in this context would be "log" or "sqrt".}
@@ -47,13 +47,13 @@ dat<-data_clean$price_ts
 dat<- dat["2013-01-02/2017-07-12"]
 bb<-HARRV.recursive.forecast(dat=dat)
 tail(bb)
- #                     predicted     realized
- # 2017-07-07 23:55:00 0.0008078943 0.003320551
- # 2017-07-08 23:55:00 0.0010431969 0.002369109
- # 2017-07-09 23:55:00 0.0008631436 0.002488993
- # 2017-07-10 23:55:00 0.0021875888 0.002373416
- # 2017-07-11 23:55:00 0.0039407938 0.003152035
- # 2017-07-12 23:55:00 0.0025053951 0.004210418
+ #               realized   predicted
+ #2017-07-07 0.0008078943 0.003320551
+ #2017-07-08 0.0010431969 0.002369109
+ #2017-07-09 0.0008631436 0.002488993
+ #2017-07-10 0.0021875888 0.002373416
+ #2017-07-11 0.0039407938 0.003152035
+ #2017-07-12 0.0025053951 0.004210418
 }
 }
 \references{

@@ -7,7 +7,7 @@
 HARRV.direct.forecast(
   dat,
   periods = c(1, 5, 22),
-  type = "HARRV",
+  type = "HAR",
   transform = NULL,
   roll.window = 1621,
   lag_fore = 1
@@ -19,7 +19,7 @@ HARRV.direct.forecast(
 \item{periods}{is a vector of integers indicating over how days the realized measures in the model should be aggregated.
 By default periods = c(1,5,22). It is needed for the computation of the \link[highfrequency]{HARmodel} of the \code{highfrequency} package}
 
-\item{type}{is a string referring to the type of HAR model you would like to estimate using \link[highfrequency]{HARmodel}. By default type = "HARRV".}
+\item{type}{is a string referring to the type of HAR model you would like to estimate using \link[highfrequency]{HARmodel}. By default type = "HAR".}
 
 \item{transform}{optionally a string referring to a function that transforms both the dependent and explanatory variables in the \link[highfrequency]{HARmodel}.
 By default transform=NULL, so no transformation is done. Typical other choices in this context would be "log" or "sqrt".}

@@ -5,7 +5,7 @@
 #' @param dat is a xts object containing intraday 5-minute regularly spaces prices (see example below)
 #' @param periods is a vector of integers indicating over how days the realized measures in the model should be aggregated.
 #' By default periods = c(1,5,22). It is needed for the computation of the \link[highfrequency]{HARmodel} of the \code{highfrequency} package
-#' @param type is a string referring to the type of HAR model you would like to estimate using \link[highfrequency]{HARmodel}. By default type = "HARRV".
+#' @param type is a string referring to the type of HAR model you would like to estimate using \link[highfrequency]{HARmodel}. By default type = "HAR".
 #' @param transform optionally a string referring to a function that transforms both the dependent and explanatory variables in the \link[highfrequency]{HARmodel}.
 #'  By default transform=NULL, so no transformation is done. Typical other choices in this context would be "log" or "sqrt".
 #' @param roll.window is the rolling window size used for estimating the HAR-RV model
@@ -44,7 +44,7 @@
 #'  # 2017-07-12 23:55:00 0.004210418 0.0025053951
 #' }
 
-HARRV.direct.forecast <- function(dat,periods=c(1,5,22),type="HARRV",
+HARRV.direct.forecast <- function(dat,periods=c(1,5,22),type="HAR",
                                                    transform=NULL, roll.window = 1621, lag_fore=1){
   #HAR-RV
   dat_ret = highfrequency::makeReturns(dat)
