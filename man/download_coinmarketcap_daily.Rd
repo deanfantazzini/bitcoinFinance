@@ -21,7 +21,7 @@ download_coinmarketcap_daily(
 \item{end_date}{is the ending date (format YYYY-MM-DD) for downloading the selected cryptocurrency daily data}
 }
 \value{
-table_news is a dataframe with daily open high low close turnover and market capitalization
+table_news is a dataframe with daily open high low close volume and market capitalization
 }
 \description{
 This function downloads the daily data of the selected cryptocurrency from coinmarketcap.com
