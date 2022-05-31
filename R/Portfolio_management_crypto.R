@@ -25,7 +25,6 @@
 #' @export
 #' @importFrom zoo zoo index as.zoo
 #' @importFrom PerformanceAnalytics SharpeRatio
-#' @importFrom QuantTools returns
 #' @importFrom stats sd
 #'
 #' @references Kristoufek, L. (2013). Can Google Trends search queries contribute to risk diversification?. Scientific reports, 3, 2713.

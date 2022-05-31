@@ -33,7 +33,6 @@ Imports:
   systemfit,
   ggplot2,
   PerformanceAnalytics,
-  QuantTools,
   corpcor,
   lassovar,
   stats,

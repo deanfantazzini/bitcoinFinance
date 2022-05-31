@@ -186,3 +186,13 @@
     class(result) <- "htest"
     return(result)
   }
+
+returns = function( x, type = 'r', n = 1 ) {
+  if( !is.numeric( x ) ) return( x )
+  N = length( x )
+  if( n >= N ) stop( 'not enough data' )
+  returns = switch( type,
+                    r = c( rep( 0, n ), x[ -( 1:n ) ] / x[ -( N:( N - n + 1 ) ) ] - 1 ),
+                    l = c( rep( 1, n ), log( x[ -( 1:n ) ] / x[ -( N:( N - n + 1 ) ) ] ) )
+  )
+}
