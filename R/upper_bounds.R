@@ -186,7 +186,7 @@ btc.upper.bound.web=function(fredkey,start.date="2004-01-01",end.date="2014-12-3
 
   silver<- xml2::read_html("https://en.wikipedia.org/wiki/American_Silver_Eagle")
   table.silver <-rvest::html_nodes(silver,"table")
-  table.silver <- rvest::html_table(table.silver[[3]])
+  table.silver <- rvest::html_table(table.silver[[2]])
   total.silver.eagles <- as.numeric(as.character(
     gsub(',','',table.silver[table.silver$Year %in% "Total","Total"])))
   V_storeofvalue=0.6*required.year.silver$USD*total.silver.eagles/1000000000

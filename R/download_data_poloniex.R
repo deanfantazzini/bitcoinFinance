@@ -40,6 +40,7 @@ poloniex_download <- function(from="USDT", to="ETH", start="2001-01-01",end="201
   #data_ts <-jsonlite::fromJSON(link) #old solution
   data_ts <-rjson::fromJSON(file=link)
   data_ts <- do.call(rbind.data.frame, data_ts)
-  data_ts <- plyr::mutate(data_ts, date=as.Date(as.POSIXct(data_ts$date, origin="1970-01-01")))
+  data_ts <- plyr::mutate(data_ts, date = as.Date(as.POSIXct(as.numeric(data_ts$date)/1000,origin = "1970-01-01")))
+  data_ts[,2:8]=sapply(data_ts[, c(2:8)], as.numeric)
   return(data_ts)
 }
