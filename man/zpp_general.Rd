@@ -34,8 +34,9 @@ This function computes the general version of the ZPP by simulating a number of 
 by \code{scenarios}) over \code{n.days} time-steps, given an estimated GARCH model
 }
 \examples{
-eth_data<-poloniex_download(from="USDT",to="ETH",start="2001-01-01",end="2017-05-18",period=86400)
-prices<-eth_data$weightedAverage
+eth_data<-download_coinmarketcap_daily(id=1027,currency="USD",start_date="2016-09-16",
+          end_date="2017-09-15")
+prices<-eth_data$close
 zpp<-zpp_general(prices)
 zpp
 }

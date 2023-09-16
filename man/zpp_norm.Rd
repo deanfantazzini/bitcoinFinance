@@ -18,8 +18,9 @@ zpp.norm is the estimated closed-form normal ZPP
 This function computes the closed-form normal ZPP assuming the price series follows a random walk with drift with normal innovations
 }
 \examples{
-eth_data<-poloniex_download(from="USDT",to="ETH",start="2001-01-01",end="2017-05-18",period=86400)
-prices<-eth_data$weightedAverage
+eth_data<-download_coinmarketcap_daily(id=1027,currency="USD",start_date="2016-09-16",
+          end_date="2017-09-15")
+prices<-eth_data$close
 zpp.norm<-zpp_norm(prices)
 zpp.norm
 }

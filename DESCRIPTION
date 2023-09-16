@@ -37,11 +37,12 @@ Imports:
   lassovar,
   stats,
   RJSONIO,
-  fredr
+  fredr,
+  QuantTools
 Remotes: 
    github::lcallot/lassovar,
    github::sboysel/fredr
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 Suggests:
     knitr,
     rmarkdown,
