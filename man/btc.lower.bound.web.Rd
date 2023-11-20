@@ -5,18 +5,21 @@
 \title{Compute the bitcoin lower bound with web-delivered inputs}
 \usage{
 btc.lower.bound.web(
-  block.reward = 12.5,
+  block.reward = 6.25,
   hashing.power.miner = 10^12,
-  W.GHs = 0.25
+  W.GHs = 0.05,
+  price.kWh = 0.125
 )
 }
 \arguments{
-\item{block.reward}{is the block reward (currently 12.5 BTC/block)}
+\item{block.reward}{is the block reward (currently 6.25 BTC/block)}
 
 \item{hashing.power.miner}{is the hashing power employed by a miner. Hayes (2017) sets this value to 1000 GH/s even though
 the actual hashing power of a miner is likely to deviate greatly from this value.}
 
 \item{W.GHs}{is the energy consumption efficiency of the producer’s hardware expressed in W per GH/s}
+
+\item{price.kWh}{is the $electricity price per kWh in dollars}
 }
 \value{
 price.bitcoin is the bitcoin lower bound
@@ -31,7 +34,9 @@ b) the electricity price per kWh in dollars (given by the latest US average reta
 \examples{
 
 \dontrun{
- btc.lower.bound.web(W.GHs=0.2)
+ library(Quandl)
+ Quandl.api_key("DCpZeg_N-eAzV7aDZs6C")
+ btc.lower.bound.web(W.GHs=0.04)
  }
 }
 \references{

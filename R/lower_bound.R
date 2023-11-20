@@ -44,10 +44,11 @@ btc.lower.bound.user=function(block.reward = 12.5, hashing.power.miner = 10^12, 
 #'
 #' This function computes the bitcoin lower bound with (some) inputs taken from the web
 #'
-#' @param block.reward is the block reward (currently 12.5 BTC/block)
+#' @param block.reward is the block reward (currently 6.25 BTC/block)
 #' @param hashing.power.miner is the hashing power employed by a miner. Hayes (2017) sets this value to 1000 GH/s even though
 #'  the actual hashing power of a miner is likely to deviate greatly from this value.
 #' @param W.GHs is the energy consumption efficiency of the producer’s hardware expressed in W per GH/s
+#' @param price.kWh is the $electricity price per kWh in dollars
 #' @return price.bitcoin is the bitcoin lower bound
 #' @details
 #' This function computes the bitcoin lower bound with some inputs taken from the web: a) the latest difficulty (expressed in units of GH/block),
@@ -62,16 +63,15 @@ btc.lower.bound.user=function(block.reward = 12.5, hashing.power.miner = 10^12, 
 #' @examples
 #'
 #' \dontrun{
-#'  btc.lower.bound.web(W.GHs=0.2)
+#'  library(Quandl)
+#'  Quandl.api_key("DCpZeg_N-eAzV7aDZs6C")
+#'  btc.lower.bound.web(W.GHs=0.04)
 #'  }
 
-btc.lower.bound.web=function(block.reward = 12.5, hashing.power.miner = 10^12, W.GHs=0.25){
+btc.lower.bound.web=function(block.reward = 6.25, hashing.power.miner = 10^12, W.GHs=0.05, price.kWh=0.125){
 
-  Difficulty<-Quandl("BCHAIN/DIFF")
+  Difficulty<-Quandl::Quandl("BCHAIN/DIFF")
   Difficulty<-Difficulty$Value[1]
-  price.kWh <- Quandl("EIA/ELEC_PRICE_US_RES_M")
-  price.kWh<-price.kWh$Value[1]
-  price.kWh<-price.kWh/100 #in cents
 
   theta<-(24*3600)/(2^(32))
   BTCday  <- theta*block.reward*hashing.power.miner/Difficulty

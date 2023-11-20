@@ -161,7 +161,8 @@ btc.upper.bound.web=function(fredkey,start.date="2004-01-01",end.date="2014-12-3
   # Not all the metrics are returned by Yahoo.
   metrics <- quantmod::getQuote(paste(tickers, sep="", collapse=";"),
                                 what=what_metrics)
-
+  # MoneyGram agreed to be acquired for $1 billion in cash by Madison Dearborn Partners (a private equity firm)-no more traded
+  metrics$`Market Capitalization`[2]<-1000000000
   #Add tickers as the first column and remove the 1st column which had date stamps
   metrics <- data.frame(Symbol=tickers, metrics[,2:length(metrics)])
 
