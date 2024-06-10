@@ -20,9 +20,9 @@
 #' @importFrom utils tail
 #'
 #' @examples
-#' eth_data<-download_coinmarketcap_daily(id=1027,currency="USD",start_date="2016-09-16",
-#'           end_date="2017-09-15")
-#' prices<-eth_data$close
+#' btc_data<-dat<-bitcoinity_download(currency="USD", data_type="price",
+#'                exchange="coinbase",time_length = "2y")
+#' prices<-btc_data$avg
 #' zpp<-zpp_general(prices)
 #' zpp
 
@@ -62,9 +62,9 @@ zpp_general <- function(prices, mean.model = list(armaOrder=c(0,0)), variance.mo
 #' @importFrom stats pnorm var
 #'
 #' @examples
-#' eth_data<-download_coinmarketcap_daily(id=1027,currency="USD",start_date="2016-09-16",
-#'           end_date="2017-09-15")
-#' prices<-eth_data$close
+#' btc_data<-dat<-bitcoinity_download(currency="USD", data_type="price",
+#'                exchange="coinbase",time_length = "2y")
+#' prices<-btc_data$avg
 #' zpp.norm<-zpp_norm(prices)
 #' zpp.norm
 
@@ -92,9 +92,9 @@ zpp_norm <- function(prices, n.days=250 ){
 #'
 #' @examples
 #' library(rugarch)
-#' eth_data<-download_coinmarketcap_daily(id=1027,currency="USD",start_date="2016-09-16",
-#'           end_date="2017-09-15")
-#' prices<-eth_data$close
+#' btc_data<-dat<-bitcoinity_download(currency="USD", data_type="price",
+#'                exchange="coinbase",time_length = "2y")
+#' prices<-btc_data$avg
 #' zpp.norm.garch11<-zpp_norm_garch11(prices)
 #' zpp.norm.garch11
 

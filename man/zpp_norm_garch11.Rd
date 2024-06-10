@@ -19,9 +19,9 @@ This function computes the closed-form normal ZPP assuming the price-differenced
 }
 \examples{
 library(rugarch)
-eth_data<-download_coinmarketcap_daily(id=1027,currency="USD",start_date="2016-09-16",
-          end_date="2017-09-15")
-prices<-eth_data$close
+btc_data<-dat<-bitcoinity_download(currency="USD", data_type="price",
+               exchange="coinbase",time_length = "2y")
+prices<-btc_data$avg
 zpp.norm.garch11<-zpp_norm_garch11(prices)
 zpp.norm.garch11
 }

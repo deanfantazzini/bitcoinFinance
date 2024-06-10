@@ -34,9 +34,9 @@ This function computes the general version of the ZPP by simulating a number of 
 by \code{scenarios}) over \code{n.days} time-steps, given an estimated GARCH model
 }
 \examples{
-eth_data<-download_coinmarketcap_daily(id=1027,currency="USD",start_date="2016-09-16",
-          end_date="2017-09-15")
-prices<-eth_data$close
+btc_data<-dat<-bitcoinity_download(currency="USD", data_type="price",
+               exchange="coinbase",time_length = "2y")
+prices<-btc_data$avg
 zpp<-zpp_general(prices)
 zpp
 }

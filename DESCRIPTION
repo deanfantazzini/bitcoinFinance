@@ -15,7 +15,6 @@ Imports:
   quantmod,
   xml2,
   rvest,
-  magrittr,
   lubridate,
   jsonlite,
   rugarch,
@@ -36,13 +35,12 @@ Imports:
   corpcor,
   lassovar,
   stats,
-  RJSONIO,
   fredr,
   QuantTools
 Remotes: 
    github::lcallot/lassovar,
    github::sboysel/fredr
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.1
 Suggests:
     knitr,
     rmarkdown,

@@ -2,7 +2,7 @@
 % Please edit documentation in R/download_coinmarketcap.R
 \name{download_coinmarketcap_daily}
 \alias{download_coinmarketcap_daily}
-\title{Download the daily data of the selected cryptocurrency from coinmarketcap.com}
+\title{Download the daily data of the selected cryptocurrency from coinmarketcap.com (ARCHIVE ONLY - DO NOT USE IT)}
 \usage{
 download_coinmarketcap_daily(
   id = 1,
@@ -24,13 +24,11 @@ download_coinmarketcap_daily(
 table_news is a dataframe with daily open high low close volume and market capitalization
 }
 \description{
-This function downloads the daily data of the selected cryptocurrency from coinmarketcap.com
+This function downloaded (before 2024) the daily data of the selected cryptocurrency from coinmarketcap.com
 }
 \details{
-This function downloads the daily data of the selected cryptocurrencies from coinmarketcap.com
-}
-\examples{
-dat<-download_coinmarketcap_daily(id=2,currency="USD",start_date="2016-09-16",end_date="2020-09-23")
-head(dat)
-
+ATTENTION: THE COINMARKETCAP API DOES NOT WORK ANY MORE SINCE EARLY 2024. DO NOT USE THESE FUNCTIONS.
+THESE FUNCTIONS ARE LEFT IN THE PACKAGE ONLY FOR ARCHIVE AND EDUCATIONAL PURPOSES ONLY.
+THE QUICKEST WAY TO DOWNLOAD FREE CRYPTO DATA IS BY USING www.cryptodatadownload.com .
+This function downloaded  the daily data of the selected cryptocurrencies from coinmarketcap.com
 }
