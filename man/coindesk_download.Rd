@@ -19,5 +19,7 @@ This function downloads the daily time series data of the CoinDesk Bitcoin Price
 given a specified starting point and ending point.
 }
 \examples{
+\dontrun{
 xbp_data <- coindesk_download(start="2011-01-01",end="2017-07-27")
+}
 }

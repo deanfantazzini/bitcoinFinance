@@ -35,11 +35,11 @@ Imports:
   corpcor,
   lassovar,
   stats,
-  fredr,
-  QuantTools
+  fredr
 Remotes: 
    github::lcallot/lassovar,
-   github::sboysel/fredr
+   github::sboysel/fredr,
+   github::cran/QuantTools
 RoxygenNote: 7.3.1
 Suggests:
     knitr,
